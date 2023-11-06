@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-records-to-department
+      author: Oleg Stashkiv
+      changes:
+        - insert:
+            tableName: departments
+            columns:
+              - column:
+                  name: name
+                  value: Computer Science
+              - column:
+                  name: head_of_department_id
+                  value: 1
+        - insert:
+            tableName: departments
+            columns:
+              - column:
+                  name: name
+                  value: Civil Engineering
+              - column:
+                  name: head_of_department_id
+                  value: 2
+        - insert:
+            tableName: departments
+            columns:
+              - column:
+                  name: name
+                  value: Biological Sciences
+              - column:
+                  name: head_of_department_id
+                  value: 3
+        - insert:
+            tableName: departments
+            columns:
+              - column:
+                  name: name
+                  value: History
+              - column:
+                  name: head_of_department_id
+                  value: 4

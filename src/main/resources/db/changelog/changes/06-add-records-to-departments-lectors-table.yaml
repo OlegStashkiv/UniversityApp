@@ -1,0 +1,95 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-records-to-department
+      author: Oleg Stashkiv
+      changes:
+        - insert:
+            tableName: departments_lectors
+            columns:
+              - column:
+                  name: department_id
+                  value: 1
+              - column:
+                  name: lector_id
+                  value: 1
+        - insert:
+            tableName: departments_lectors
+            columns:
+              - column:
+                  name: department_id
+                  value: 2
+              - column:
+                  name: lector_id
+                  value: 2
+        - insert:
+            tableName: departments_lectors
+            columns:
+              - column:
+                  name: department_id
+                  value: 3
+              - column:
+                  name: lector_id
+                  value: 3
+        - insert:
+            tableName: departments_lectors
+            columns:
+              - column:
+                  name: department_id
+                  value: 4
+              - column:
+                  name: lector_id
+                  value: 4
+        - insert:
+            tableName: departments_lectors
+            columns:
+              - column:
+                  name: department_id
+                  value: 1
+              - column:
+                  name: lector_id
+                  value: 5
+        - insert:
+            tableName: departments_lectors
+            columns:
+              - column:
+                  name: department_id
+                  value: 2
+              - column:
+                  name: lector_id
+                  value: 6
+        - insert:
+            tableName: departments_lectors
+            columns:
+              - column:
+                  name: department_id
+                  value: 1
+              - column:
+                  name: lector_id
+                  value: 7
+        - insert:
+            tableName: departments_lectors
+            columns:
+              - column:
+                  name: department_id
+                  value: 2
+              - column:
+                  name: lector_id
+                  value: 8
+        - insert:
+            tableName: departments_lectors
+            columns:
+              - column:
+                  name: department_id
+                  value: 3
+              - column:
+                  name: lector_id
+                  value: 9
+        - insert:
+            tableName: departments_lectors
+            columns:
+              - column:
+                  name: department_id
+                  value: 4
+              - column:
+                  name: lector_id
+                  value: 10
