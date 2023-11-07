@@ -13,5 +13,6 @@ public class Terminal implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         menuService.showMenu();
+        menuService.choseOption();
     }
 }

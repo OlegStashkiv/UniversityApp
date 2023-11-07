@@ -46,7 +46,6 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public void showMenu() {
         outputPrinter.print(MAIN_MENU);
-        choseOption();
     }
 
     @Override
