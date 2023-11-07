@@ -1,20 +1,19 @@
 package com.olegstashkiv.university.repository.impl;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.olegstashkiv.university.model.Department;
 import com.olegstashkiv.university.model.Lector;
 import com.olegstashkiv.university.repository.DepartmentRepository;
 import com.olegstashkiv.university.repository.LectorRepository;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 public class DepartmentRepositoryTest {
@@ -56,7 +55,8 @@ public class DepartmentRepositoryTest {
                 new Object[]{Lector.Degree.PROFESSOR.name(), 1L}
         );
 
-        List<Object[]> result = departmentRepository.countLectorsByDegreeAndDepartmentName("Test Department");
+        List<Object[]> result = departmentRepository
+                .countLectorsByDegreeAndDepartmentName("Test Department");
 
         expected = expected.stream()
                 .map(objects -> new Object[]{objects[0].toString(), objects[1]})

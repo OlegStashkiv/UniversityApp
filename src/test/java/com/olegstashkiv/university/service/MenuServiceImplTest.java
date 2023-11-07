@@ -1,5 +1,8 @@
 package com.olegstashkiv.university.service;
 
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import com.olegstashkiv.university.model.Department;
 import com.olegstashkiv.university.model.Lector;
 import com.olegstashkiv.university.service.impl.MenuServiceImpl;
@@ -7,15 +10,11 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import static org.mockito.Mockito.*;
-import org.mockito.Spy;
 
 public class MenuServiceImplTest {
     private static final String MAIN_MENU = """
@@ -63,7 +62,8 @@ public class MenuServiceImplTest {
         department.setHeadOfDepartment(headOfDepartment);
 
         when(userInputProvider.getUserInput()).thenReturn("Test Department");
-        when(departmentService.getByName("Test Department")).thenReturn(java.util.Optional.of(department));
+        when(departmentService.getByName("Test Department"))
+                .thenReturn(java.util.Optional.of(department));
 
         menuService.getHeadOfDepartment();
 
@@ -94,7 +94,8 @@ public class MenuServiceImplTest {
 
         when(userInputProvider.getUserInput()).thenReturn("Test Department");
         when(departmentService.getByName("Test Department")).thenReturn(Optional.of(department));
-        when(departmentService.getAverageSalary("Test Department")).thenReturn(BigDecimal.valueOf(1500.0));
+        when(departmentService.getAverageSalary("Test Department"))
+                .thenReturn(BigDecimal.valueOf(1500.0));
 
         menuService.showAverageSalaryForDepartment();
 
@@ -107,8 +108,10 @@ public class MenuServiceImplTest {
         department.setName("Test Department");
 
         when(userInputProvider.getUserInput()).thenReturn("Test Department");
-        when(departmentService.getByName("Test Department")).thenReturn(Optional.of(department));
-        when(lectorsService.findAllByDepartmentName("Test Department")).thenReturn(List.of(new Lector(), new Lector()));
+        when(departmentService.getByName("Test Department"))
+                .thenReturn(Optional.of(department));
+        when(lectorsService.findAllByDepartmentName("Test Department"))
+                .thenReturn(List.of(new Lector(), new Lector()));
 
         menuService.showCountOfEmployeeForDepartment();
 

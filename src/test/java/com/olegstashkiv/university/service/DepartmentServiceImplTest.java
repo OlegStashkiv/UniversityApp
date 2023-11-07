@@ -7,14 +7,18 @@ import com.olegstashkiv.university.model.Department;
 import com.olegstashkiv.university.model.Lector;
 import com.olegstashkiv.university.repository.DepartmentRepository;
 import com.olegstashkiv.university.service.impl.DepartmentServiceImpl;
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import java.math.BigDecimal;
-import java.util.*;
 
 class DepartmentServiceImplTest {
 
@@ -55,7 +59,6 @@ class DepartmentServiceImplTest {
     @Test
     @DisplayName("Test Show Count Of Employees")
     void testShowCountOfEmployees() {
-        String departmentName = "History";
         Lector lector1 = new Lector();
         lector1.setFirstName("John");
         lector1.setLastName("Doe");
@@ -64,6 +67,8 @@ class DepartmentServiceImplTest {
         lector2.setLastName("Johnson");
 
         List<Lector> mockLectors = Arrays.asList(lector1, lector2);
+
+        String departmentName = "History";
 
         when(lectorsService.findAllByDepartmentName(departmentName)).thenReturn(mockLectors);
 
@@ -75,8 +80,6 @@ class DepartmentServiceImplTest {
     @Test
     @DisplayName("Test Get Average Salary")
     void testGetAverageSalary() {
-        String departmentName = "History";
-
         Lector lector1 = new Lector();
         lector1.setFirstName("John");
         lector1.setLastName("Doe");
@@ -88,6 +91,8 @@ class DepartmentServiceImplTest {
         lector2.setSalary(BigDecimal.valueOf(2500));
 
         List<Lector> mockLectors = Arrays.asList(lector1, lector2);
+
+        String departmentName = "History";
 
         when(lectorsService.findAllByDepartmentName(departmentName)).thenReturn(mockLectors);
 
@@ -105,7 +110,8 @@ class DepartmentServiceImplTest {
         Object[] professorArray = new Object[]{"PROFESSOR", 1L};
         List<Object[]> mockStatistics = Arrays.asList(assistantArray, professorArray);
 
-        when(departmentRepository.countLectorsByDegreeAndDepartmentName(departmentName)).thenReturn(mockStatistics);
+        when(departmentRepository.countLectorsByDegreeAndDepartmentName(departmentName))
+                .thenReturn(mockStatistics);
 
         Map<String, Long> expectedStatistic = new HashMap<>();
         expectedStatistic.put("ASSISTANT", 2L);
