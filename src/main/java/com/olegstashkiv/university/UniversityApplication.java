@@ -1,6 +1,6 @@
-package com.olegstashkiv.university.university;
+package com.olegstashkiv.university;
 
-import com.olegstashkiv.university.university.service.MenuService;
+import com.olegstashkiv.university.service.MenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

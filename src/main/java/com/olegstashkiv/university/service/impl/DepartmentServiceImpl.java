@@ -1,10 +1,10 @@
-package com.olegstashkiv.university.university.service.impl;
+package com.olegstashkiv.university.service.impl;
 
-import com.olegstashkiv.university.university.model.Department;
-import com.olegstashkiv.university.university.model.Lector;
-import com.olegstashkiv.university.university.repository.DepartmentRepository;
-import com.olegstashkiv.university.university.service.DepartmentService;
-import com.olegstashkiv.university.university.service.LectorsService;
+import com.olegstashkiv.university.model.Department;
+import com.olegstashkiv.university.model.Lector;
+import com.olegstashkiv.university.repository.DepartmentRepository;
+import com.olegstashkiv.university.service.DepartmentService;
+import com.olegstashkiv.university.service.LectorsService;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;

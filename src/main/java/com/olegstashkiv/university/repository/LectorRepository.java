@@ -1,6 +1,6 @@
-package com.olegstashkiv.university.university.repository;
+package com.olegstashkiv.university.repository;
 
-import com.olegstashkiv.university.university.model.Lector;
+import com.olegstashkiv.university.model.Lector;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
