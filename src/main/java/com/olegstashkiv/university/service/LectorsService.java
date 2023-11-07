@@ -1,6 +1,6 @@
-package com.olegstashkiv.university.university.service;
+package com.olegstashkiv.university.service;
 
-import com.olegstashkiv.university.university.model.Lector;
+import com.olegstashkiv.university.model.Lector;
 import java.util.List;
 
 public interface LectorsService {

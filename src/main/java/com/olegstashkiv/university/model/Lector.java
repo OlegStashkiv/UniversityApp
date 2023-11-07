@@ -1,4 +1,4 @@
-package com.olegstashkiv.university.university.model;
+package com.olegstashkiv.university.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -49,7 +49,7 @@ public class Lector {
     @ToString.Exclude
     private Set<Department> departments = new HashSet<>();
 
-    enum Degree {
+    public enum Degree {
         ASSISTANT, ASSOCIATE_PROFESSOR, PROFESSOR
     }
 }

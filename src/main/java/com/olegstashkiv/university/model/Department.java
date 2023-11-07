@@ -1,4 +1,4 @@
-package com.olegstashkiv.university.university.model;
+package com.olegstashkiv.university.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,8 +1,8 @@
-package com.olegstashkiv.university.university.service.impl;
+package com.olegstashkiv.university.service.impl;
 
-import com.olegstashkiv.university.university.model.Lector;
-import com.olegstashkiv.university.university.repository.LectorRepository;
-import com.olegstashkiv.university.university.service.LectorsService;
+import com.olegstashkiv.university.model.Lector;
+import com.olegstashkiv.university.repository.LectorRepository;
+import com.olegstashkiv.university.service.LectorsService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
-package com.olegstashkiv.university.university.service;
+package com.olegstashkiv.university.service;
 
-import com.olegstashkiv.university.university.model.Department;
-import com.olegstashkiv.university.university.model.Lector;
+import com.olegstashkiv.university.model.Department;
+import com.olegstashkiv.university.model.Lector;
 import java.math.BigDecimal;
 import java.util.Map;
 import java.util.Optional;

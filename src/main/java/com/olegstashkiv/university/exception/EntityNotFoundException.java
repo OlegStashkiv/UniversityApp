@@ -1,4 +1,4 @@
-package com.olegstashkiv.university.university.exception;
+package com.olegstashkiv.university.exception;
 
 public class EntityNotFoundException extends RuntimeException {
     public EntityNotFoundException(String message) {
