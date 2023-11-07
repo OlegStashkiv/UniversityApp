@@ -8,16 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @RequiredArgsConstructor
-public class UniversityApplication implements CommandLineRunner {
-
-    private final MenuService menuService;
-
+public class UniversityApplication {
     public static void main(String[] args) {
         SpringApplication.run(UniversityApplication.class, args);
     }
 
-    @Override
-    public void run(String... args) throws Exception {
-        menuService.showMenu();
-    }
 }

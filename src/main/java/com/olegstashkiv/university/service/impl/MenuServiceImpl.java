@@ -116,10 +116,14 @@ public class MenuServiceImpl implements MenuService {
                 searchResult.append(l.getLastName());
                 searchResult.append(", ");
             }
+        }
+
+        if (!searchResult.isEmpty()) {
             outputPrinter.print(searchResult.substring(0, searchResult.length() - 2));
         } else {
             outputPrinter.print(NOTHING_NOT_FOUND_MESSAGE);
         }
+
         backToMenu();
     }
 

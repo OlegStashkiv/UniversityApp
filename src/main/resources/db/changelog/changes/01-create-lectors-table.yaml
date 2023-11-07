@@ -26,10 +26,6 @@ databaseChangeLog:
               - column:
                   name: salary
                   type: decimal
-                  constraints:
-                    nullable: false
               - column:
                   name: degree
                   type: varchar(255)
-                  constraints:
-                    nullable: false

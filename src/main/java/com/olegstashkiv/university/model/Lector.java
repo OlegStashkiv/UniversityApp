@@ -32,10 +32,8 @@ public class Lector {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
     private BigDecimal salary;
 
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Degree degree;
 
