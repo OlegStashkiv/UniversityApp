@@ -49,7 +49,7 @@ public class Lector {
     @ToString.Exclude
     private Set<Department> departments = new HashSet<>();
 
-    enum Degree {
+    public enum Degree {
         ASSISTANT, ASSOCIATE_PROFESSOR, PROFESSOR
     }
 }

@@ -67,7 +67,7 @@ public class MenuServiceImpl implements MenuService {
 
     private void getHeadOfDepartment() {
         Department department = getDepartment();
-        Lector headOfDepartment = departmentService.getHeadOfDepartment(department.getName());
+        Lector headOfDepartment = department.getHeadOfDepartment();
         System.out.println("Head of " + department.getName() + "  department is "
                     + headOfDepartment.getFirstName() + " "
                     + headOfDepartment.getLastName());
