@@ -52,6 +52,7 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public void choseOption() {
         String option = userInputProvider.getUserInput();
+
         switch (option) {
             case "1" -> getHeadOfDepartment();
             case "2" -> showDepartmentStatistic();
@@ -105,6 +106,7 @@ public class MenuServiceImpl implements MenuService {
     public void globalSearch() {
         outputPrinter.print(SEARCH_MESSAGE);
         String value = userInputProvider.getUserInput();
+
         List<Lector> lectors = lectorsService.searchByNameOrLastName(value);
         StringBuilder searchResult = new StringBuilder();
         if (lectors != null) {
