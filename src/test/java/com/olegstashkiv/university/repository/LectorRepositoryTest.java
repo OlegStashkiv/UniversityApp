@@ -63,8 +63,6 @@ public class LectorRepositoryTest {
         lector2.setFirstName("Alice");
         lector2.setLastName("Smith");
 
-
-
         lectorRepository.saveAll(List.of(lector1, lector2));
 
         List<Lector> result = lectorRepository.getAllByDepartmentName("History");

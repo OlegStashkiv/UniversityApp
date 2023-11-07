@@ -3,14 +3,11 @@ package com.olegstashkiv.university.service;
 import com.olegstashkiv.university.model.Department;
 import com.olegstashkiv.university.model.Lector;
 import com.olegstashkiv.university.service.impl.MenuServiceImpl;
-import com.olegstashkiv.university.service.DepartmentService;
-import com.olegstashkiv.university.service.LectorsService;
-import com.olegstashkiv.university.service.OutputPrinter;
-import com.olegstashkiv.university.service.UserInputProvider;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -18,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.mockito.Mockito.*;
+import org.mockito.Spy;
 
 public class MenuServiceImplTest {
     private static final String MAIN_MENU = """
@@ -50,9 +48,7 @@ public class MenuServiceImplTest {
     @Test
     public void testShowMenu() {
         when(userInputProvider.getUserInput()).thenReturn("6");
-
         menuService.showMenu();
-
         verify(outputPrinter).print(MAIN_MENU);
     }
 

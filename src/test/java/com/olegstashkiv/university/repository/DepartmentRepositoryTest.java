@@ -1,9 +1,9 @@
 package com.olegstashkiv.university.repository;
 
-import com.olegstashkiv.university.model.Department;
-import com.olegstashkiv.university.model.Lector;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.olegstashkiv.university.model.Department;
+import com.olegstashkiv.university.model.Lector;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;

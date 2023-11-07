@@ -1,9 +1,11 @@
 package com.olegstashkiv.university.service;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+
 import com.olegstashkiv.university.model.Department;
 import com.olegstashkiv.university.model.Lector;
 import com.olegstashkiv.university.repository.DepartmentRepository;
-import com.olegstashkiv.university.service.LectorsService;
 import com.olegstashkiv.university.service.impl.DepartmentServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -11,12 +13,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 import java.math.BigDecimal;
 import java.util.*;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
 
 class DepartmentServiceImplTest {
 

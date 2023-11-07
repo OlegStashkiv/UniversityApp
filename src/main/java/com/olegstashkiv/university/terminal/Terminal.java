@@ -7,8 +7,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class Terminal  implements CommandLineRunner {
+public class Terminal implements CommandLineRunner {
     private final MenuService menuService;
+
     @Override
     public void run(String... args) throws Exception {
         menuService.showMenu();

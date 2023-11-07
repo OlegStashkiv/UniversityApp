@@ -1,8 +1,6 @@
 package com.olegstashkiv.university.service.impl;
 
 import com.olegstashkiv.university.service.OutputPrinter;
-import com.olegstashkiv.university.service.UserInputProvider;
-import java.util.Scanner;
 import org.springframework.stereotype.Service;
 
 @Service

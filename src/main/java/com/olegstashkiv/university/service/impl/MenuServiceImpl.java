@@ -145,7 +145,6 @@ public class MenuServiceImpl implements MenuService {
             case "no" -> exit();
             default -> {
                 outputPrinter.print(WRONG_ANSWER);
-                backToMenu();
             }
         }
     }
