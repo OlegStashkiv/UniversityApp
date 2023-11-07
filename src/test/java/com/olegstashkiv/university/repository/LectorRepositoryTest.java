@@ -21,6 +21,9 @@ public class LectorRepositoryTest {
     @Autowired
     private LectorRepository lectorRepository;
 
+    @Autowired
+    private DepartmentRepository departmentRepository;
+
     @Test
     public void testGetAllByFirstNameOrLastNameContainsIgnoreCase() {
         Lector lector1 = new Lector();
@@ -41,8 +44,15 @@ public class LectorRepositoryTest {
 
     @Test
     public void testGetAllByDepartmentName() {
+        Lector lector = new Lector();
+        lector.setFirstName("Jimy");
+        lector.setLastName("Van");
+        lectorRepository.save(lector);
+
         Department department = new Department();
         department.setName("History");
+        department.setHeadOfDepartment(lector);
+        departmentRepository.save(department);
 
         Lector lector1 = new Lector();
         lector1.setFirstName("John");
@@ -52,6 +62,8 @@ public class LectorRepositoryTest {
         Lector lector2 = new Lector();
         lector2.setFirstName("Alice");
         lector2.setLastName("Smith");
+
+
 
         lectorRepository.saveAll(List.of(lector1, lector2));
 
