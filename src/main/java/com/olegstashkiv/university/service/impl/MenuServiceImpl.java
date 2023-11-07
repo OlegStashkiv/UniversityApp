@@ -5,9 +5,8 @@ import com.olegstashkiv.university.model.Lector;
 import com.olegstashkiv.university.service.DepartmentService;
 import com.olegstashkiv.university.service.LectorsService;
 import com.olegstashkiv.university.service.MenuService;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.olegstashkiv.university.service.OutputPrinter;
+import com.olegstashkiv.university.service.UserInputProvider;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
@@ -39,18 +38,21 @@ public class MenuServiceImpl implements MenuService {
     private static final String CONTINUE_MESSAGE = "Continue work? Yes/No";
     private static final String WRONG_ANSWER = "You have entered incorrect data. Try again";
 
+    private final UserInputProvider userInputProvider;
+    private final OutputPrinter outputPrinter;
     private final DepartmentService departmentService;
     private final LectorsService lectorsService;
 
     @Override
     public void showMenu() {
-        System.out.println(MAIN_MENU);
+        outputPrinter.print(MAIN_MENU);
         choseOption();
     }
 
     @Override
     public void choseOption() {
-        String option = readValue();
+        String option = userInputProvider.getUserInput();
+
         switch (option) {
             case "1" -> getHeadOfDepartment();
             case "2" -> showDepartmentStatistic();
@@ -59,51 +61,52 @@ public class MenuServiceImpl implements MenuService {
             case "5" -> globalSearch();
             case "6" -> exit();
             default -> {
-                System.out.println(DEFAULT_OPTION_MESSAGE);
+                outputPrinter.print(DEFAULT_OPTION_MESSAGE);
                 choseOption();
             }
         }
     }
 
-    private void getHeadOfDepartment() {
+    public void getHeadOfDepartment() {
         Department department = getDepartment();
         Lector headOfDepartment = department.getHeadOfDepartment();
-        System.out.println("Head of " + department.getName() + "  department is "
-                    + headOfDepartment.getFirstName() + " "
-                    + headOfDepartment.getLastName());
+        outputPrinter.print("Head of " + department.getName() + "  department is "
+                + headOfDepartment.getFirstName() + " "
+                + headOfDepartment.getLastName());
         backToMenu();
     }
 
-    private void showDepartmentStatistic() {
+    public void showDepartmentStatistic() {
         Department department = getDepartment();
         Map<String, Long> statistic = departmentService.getStatistic(department.getName());
-        System.out.println(department.getName() + " statistics: ");
+        outputPrinter.print(department.getName() + " statistics: ");
         for (Map.Entry<String, Long> entry : statistic.entrySet()) {
-            System.out.println(entry.getKey() + " - " + entry.getValue());
+            outputPrinter.print(entry.getKey() + " - " + entry.getValue());
         }
         backToMenu();
     }
 
-    private void showAverageSalaryForDepartment() {
+    public void showAverageSalaryForDepartment() {
         Department department = getDepartment();
         BigDecimal averageSalary = departmentService.getAverageSalary(department.getName());
-        System.out.println("The average salary of "
+        outputPrinter.print("The average salary of "
                 + department.getName()
                 + " is " + averageSalary
         );
         backToMenu();
     }
 
-    private void showCountOfEmployeeForDepartment() {
+    public void showCountOfEmployeeForDepartment() {
         Department department = getDepartment();
         Integer countOfEmployees = departmentService.showCountOfEmployees(department.getName());
-        System.out.println(countOfEmployees);
+        outputPrinter.print(countOfEmployees.toString());
         backToMenu();
     }
 
-    private void globalSearch() {
-        System.out.println(SEARCH_MESSAGE);
-        String value = readValue();
+    public void globalSearch() {
+        outputPrinter.print(SEARCH_MESSAGE);
+        String value = userInputProvider.getUserInput();
+
         List<Lector> lectors = lectorsService.searchByNameOrLastName(value);
         StringBuilder searchResult = new StringBuilder();
         if (lectors != null) {
@@ -113,40 +116,31 @@ public class MenuServiceImpl implements MenuService {
                 searchResult.append(l.getLastName());
                 searchResult.append(", ");
             }
-            System.out.println(searchResult.substring(0, searchResult.length() - 2));
+            outputPrinter.print(searchResult.substring(0, searchResult.length() - 2));
         } else {
-            System.out.println(NOTHING_NOT_FOUND_MESSAGE);
+            outputPrinter.print(NOTHING_NOT_FOUND_MESSAGE);
         }
         backToMenu();
     }
 
     private Department getDepartment() {
-        System.out.println(DEPARTMENT_NAME_MESSAGE);
-        String departmentName = readValue();
+        outputPrinter.print(DEPARTMENT_NAME_MESSAGE);
+        String departmentName = userInputProvider.getUserInput();
         Optional<Department> department = departmentService.getByName(departmentName);
         if (department.isEmpty()) {
-            System.out.println(DEPARTMENT_DOES_NOT_EXIST_MESSAGE);
+            outputPrinter.print(DEPARTMENT_DOES_NOT_EXIST_MESSAGE);
         }
         return department.orElseGet(this::getDepartment);
     }
 
-    private String readValue() {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            return reader.readLine();
-        } catch (IOException e) {
-            throw new RuntimeException("There were problems trying to read data: " + e);
-        }
-    }
-
     private void backToMenu() {
-        System.out.println(CONTINUE_MESSAGE);
-        String answer = readValue();
+        outputPrinter.print(CONTINUE_MESSAGE);
+        String answer = userInputProvider.getUserInput();
         switch (answer.toLowerCase()) {
             case "yes" -> showMenu();
             case "no" -> exit();
             default -> {
-                System.out.println(WRONG_ANSWER);
+                outputPrinter.print(WRONG_ANSWER);
                 backToMenu();
             }
         }
